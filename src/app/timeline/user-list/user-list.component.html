@@ -1,13 +1,14 @@
 <div class="user-list">
   <div class="inner">
     <ul class="users">
-      <li>
-        <a href="#">
-          <div class="image"><img src="//placehold.jp/30x30.png" alt="" class="rounded-circle"></div>
-          五十川 洋平
+      <li *ngFor="let user of users$ | async">
+        <a [routerLink]="['users', user.uid]">
+          <div class="image"><img src="//placehold.jp/30x30.png" alt="{{ user.displayName }}" class="rounded-circle"></div>
+          {{ user.displayName }}
         </a>
       </li>
     </ul>
   </div>
 </div>
+
 

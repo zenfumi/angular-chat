@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireList, AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { User } from '../../class/user';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ac-user-list',
@@ -22,10 +23,9 @@ export class UserListComponent implements OnInit {
       map((snapshots: SnapshotAction<User>[]) =>{
         return snapshots.map(snapshot => {
           const values = snapshot.payload.val();
-          return
-        })
+          return new User(values);
+        });
       })
-    )
+    );
   }
-
 }

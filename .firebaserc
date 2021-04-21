@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "angular-chat": "angular-chat-51acd"
   }
 }
